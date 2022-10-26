@@ -1,11 +1,11 @@
 > cse210-04
 # Greed Game: 
- - [Porpuse](/blob/main/#Porpuse)
- - [Game Specificatiom](https://github.com/greismichell/cse210-04/blob/main/#Game-Specification)
- - [Game Design](https://github.com/greismichell/cse210-04/blob/main/#Game-Design)
- - [Project Structure](https://github.com/greismichell/cse210-04/blob/main/#Project-Structure)
- - [Getting Started](https://github.com/greismichell/cse210-04/blob/main/#Getting-Started)
- - [Required Technologies](https://github.com/greismichell/cse210-04/blob/main/#Required-Technologies)
+ - [Porpuse](http://github.com/greismichell/cse210-04/blob/main/README.md#Porpuse)
+ - [Game Specificatiom](https://github.com/greismichell/cse210-04/blob/main/README.md#Game-Specification)
+ - [Game Design](https://github.com/greismichell/cse210-04/blob/main/README.md#Game-Design)
+ - [Project Structure](https://github.com/greismichell/cse210-04/blob/main/README.md#Project-Structure)
+ - [Getting Started](https://github.com/greismichell/cse210-04/blob/main/README.md#Getting-Started)
+ - [Required Technologies](https://github.com/greismichell/cse210-04/blob/main/README.md#Required-Technologies)
  - [Autors](https://github.com/greismichell/cse210-04/blob/main/README.md#Autors)
 
 ## Porpuse
