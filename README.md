@@ -40,11 +40,8 @@ Object: Match:
     State: 
 
     - Start_game:  Starts the game using the given cast. Runs the main game loop.
-
     - Get_inputs: Gets directional input from the keyboard and applies it to the user.
-
     - Do_updates: Updates  the user position and resolves any collision with rocks.
-
     - Do_outputs: Draws the actors on the screen.
 
 
