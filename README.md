@@ -31,13 +31,13 @@ Greed is a game in which the player seeks to gather as many falling gems as poss
 Object: Match:
     "Direct a new game."
  
-Responsibility:
+    Responsibility:
     - Control the sequence of play.
 
-Behaviors:
+    Behaviors:
     - Create a new match game using the keyboard and video services
 
-State: 
+    State: 
 
     - Start_game:  Starts the game using the given cast. Runs the main game loop.
 
@@ -51,13 +51,13 @@ State:
 Object: Artifact:
     "A visible, moveable thing that participates in the game."
 
-Responsibility:  
+    Responsibility:  
     - Keep track of its appearance, position and velocity in 2d space.
 
-Behavior: 
+    Behavior: 
     - Construct news artifacts.
 
-State: 
+    State: 
 
     - text (string): The text to display
     - font_size (int): The font size to use.
@@ -65,15 +65,16 @@ State:
     - position (Point): The screen coordinates.
     - velocity (Point): The speed and direction.
 
-Object: Message (Artifact):
+
+Object: Presentation(Artifact):
     "The message to display"
 
-Responsibility:
+    Responsibility:
     - provide a message about the artifact.
-Behavior: 
+    Behavior: 
     - message (string): A short description about the artifact.
 
-State:
+    State:
     - Get_message: gets the artifac´s message.
     - Set_message: Updates the message to the given one.
 
@@ -82,13 +83,13 @@ State:
 Object: Cast:
     "A collection of artifacts."
 
-Responsibility:
+    Responsibility:
     - keep track of a collection of artifacts. It has methods for adding, removing and getting them by a group name.
 
-Behavior:  
+    Behavior:  
     - A dictionary of actors { key: group_name, value: a list of  artifacts}
 
-States:
+    States:
 
     - Add_artifact: adss an artifact to the given group.
     - Get_artifacts: get the artifacts in the given group.
@@ -100,12 +101,12 @@ States:
 Object: KeyboardService:
     "Detects player input."
    
-Responsibility:
+    Responsibility:
     - Dectect player key presses and translate them into a point representing a direction.
 
-Behavior:
+    Behavior:
     - Scalling directional intput to a grip.
-States:
+   States:
     - Get_ direction: gets the slected direction based on the currently pressed keys.
                   
 
@@ -113,16 +114,16 @@ States:
 Object: Video Service:
     "Outputs the game state"
 
-Responsibility: 
+    Responsibility: 
     - The responsibility of the class of objects is to draw the game state on the screen.
 
-Behaviors:
+    Behaviors:
     - Debug (bool): wheter or not to draw in debug mode.
 
-States:
+    States:
 
     - Clase_window: Closes the window and releases all computing resources.
-    - Clear_buffer: Clears the buffer in preparation for the next rendering. This method should be               called at the beginning of the game's output phase.
+    - Clear_buffer: Clears the buffer in preparation for the next rendering. This method   should be called at the beginning of the game's output phase.
     - Draw_artifact: Draws the given artifact's text on the screen.
     - Draw_artifacs: Draws the text for the given list of artifacts on the screen.
     - Flush_buffer: Copies the buffer contents to the screen. This method should be called at the end of  the game's output phase.
@@ -137,30 +138,30 @@ States:
 Object: Color:
     "A color"
 
-Responsibility:
+    Responsibility:
     - Hold and provide information about itself. Color has a few convenience methods for comparing them and converting to a tuple.
 
-Behaviors:
+    Behaviors:
     - Put color through:
         - red (int): The red value.
         - green (int): The green value.
         - blue (int): The blue value.
         - alpha (int): The alpha or opacity.
 
-Staste:
+    Staste:
     - To_tuple: Gets the color as a tuple of four values (red, green, blue, alpha).
 
 
 Object: Point:
     "A distance from a relative origin (0, 0)."
 
-Responsinility:
+    Responsinility:
     - Hold and provide information about itself. Point has a few convenience methods for adding, scaling, and comparing them.
 
-Behaviors:
+    Behaviors:
     - Constructs a new Point using the specified x and y values.
 
-State:
+    State:
 
     - Add:  Gets a new point that is the sum of this and the given one.
     - Equals: Whether or not this Point is equal to the given one.
