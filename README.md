@@ -17,6 +17,7 @@ Develop and demostrate the mastery of the:
 ## Game Specification
 ---
 Greed is a game in which the player seeks to gather as many falling gems as possible. The game continues as long as the player wants more!
+
  ### Greed Rules
    * Gems(*) and rocks(o) randomly apper and fall from the top of the screen.
    * The player(#) can move left or right along the bottom of the screen.
@@ -25,6 +26,7 @@ Greed is a game in which the player seeks to gather as many falling gems as poss
    * Gems and rocks are removed when the player touches them.
    * The game countinues until the player closes the window.
 
+
 ## Game Design
 ---
 ```
@@ -32,42 +34,50 @@ Object: Match:
     "Direct a new game."
  
     Responsibility:
-    - Control the sequence of play.
+    - Control the sequence of play and keep track the score.
 
     Behaviors:
-    - Create a new match game using the keyboard and video services
+    - Create a new match game using the keyboard and video services, and optain the score.
 
     State: 
 
     - Start_game:  Starts the game using the given cast. Runs the main game loop.
-    - Get_inputs: Gets directional input from the keyboard and applies it to the user.
-    - Do_updates: Updates  the user position and resolves any collision with rocks.
-    - Do_outputs: Draws the actors on the screen.
+    - get_value: get value for the gem and rock artifact
+        - return the score
+    - get_inputs: Gets directional input from the keyboard and applies it to the user.
+    - do_updates: Updates  the user position and resolves any collision with rocks.
+    - do_outputs: Draws the actors on the screen.
 
 
 Object: Artifact:
     "A visible, moveable thing that participates in the game."
 
     Responsibility:  
-    - Keep track of its appearance, position and velocity in 2d space.
+    - Keep track of its appearance, position and velocity in 2d space, and its value.
 
     Behavior: 
     - Construct news artifacts.
 
     State: 
-
-    - text (string): The text to display
-    - font_size (int): The font size to use.
-    - color (Color): The color of the text.
-    - position (Point): The screen coordinates.
-    - velocity (Point): The speed and direction.
-
+    - get_color: Gets the actor's color as a tuple of three ints (r, g, b).
+    - get_font_size: Gets the actor's font size.
+    - get_position: Gets the artifact's position in 2d space.
+    - get_value(int): get the value of each artifact.
+    - get_text: Gets the actor's textual representation.
+    - get_velocity: Gets the actor's speed and direction.
+    - move_next: Moves the artifact to its next position according to its velocity. Will wrap the position from one side of the screen to the other when it reaches the given maximum x and y values.
+    - set_color: Updates the color to the given one.
+    - set_position: Updates the position to the given one.
+    - set_font_size: Updates the font size to the given one.
+    - set_text: updates the text to the given one.
+    -set_velocity: Updates the velocity to the given one.
 
 Object: Presentation(Artifact):
     "The message to display"
 
     Responsibility:
     - provide a message about the artifact.
+
     Behavior: 
     - message (string): A short description about the artifact.
 
