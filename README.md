@@ -21,16 +21,16 @@ Greed is a game in which the player seeks to gather as many falling gems as poss
  ### Greed Rules
    * Gems(*) and rocks(o) randomly apper and fall from the top of the screen.
    * The player(#) can move left or right along the bottom of the screen.
-   * If the player touches a gem they earn a point.
-   * If the player touches a rock they lose a point.
+   * If the player touches a gem they earn, randomly, points between 1 to 6.
+   * If the player touches a rock they lose, ramdonly, points between 1 to 6.
    * Gems and rocks are removed when the player touches them.
-   * The game countinues until the player closes the window.
+   * The game countinues until there aren't more gems, and a "Game Over" message is displayed on the window.
 
 
 ## Game Design
 ---
 ```
-Object: Match:
+Object: Director:
     "Direct a new game."
  
     Responsibility:
@@ -49,7 +49,7 @@ Object: Match:
     - do_outputs: Draws the actors on the screen.
 
 
-Object: Artifact:
+Object: Actor:
     "A visible, moveable thing that participates in the game."
 
     Responsibility:  
@@ -72,18 +72,39 @@ Object: Artifact:
     - set_text: updates the text to the given one.
     -set_velocity: Updates the velocity to the given one.
 
-Object: Presentation(Artifact):
-    "The message to display"
+Object: Item():
+    "The father class that control the attributes of gems and rocks"
 
     Responsibility:
-    - provide a message about the artifact.
+    - provide the attributes like color, position and value.
 
     Behavior: 
-    - message (string): A short description about the artifact.
+    - give the attributes color, position and value to each gem and rock.
 
     State:
-    - Get_message: gets the artifac´s message.
-    - Set_message: Updates the message to the given one.
+    - get_value: gets the item value
+       -Retuns: int: the value
+
+    - get_group: gets the group for the item
+        -Returns: str: the group name.
+
+Object: Gem(Item):
+    "The constructor of gems"
+     
+    Responsibility:
+    - Provide the corresponding attributes to gems.
+
+    States:
+    - Use the attributes to the Item class and give them a new behavior using them with polymorphism.
+
+Object: Rock(Item):
+    "the constructor of rocks"
+
+    Responsibility:
+    -Provide the corresponding attributes to rocks.
+
+    States:
+    - Use the attributes to the Item class and give them a new behavior using them with polymorphism.
 
 
 
