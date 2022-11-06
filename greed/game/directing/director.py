@@ -22,6 +22,7 @@ class Director:
             keyboard_service (KeyboardService): An instance of KeyboardService.
             video_service (VideoService): An instance of VideoService.
         """
+        self._level = 0
         self._score = 0
         self._actors = {}
         self._keyboard_service = keyboard_service
@@ -94,6 +95,52 @@ class Director:
         """
         
         gems = cast.get_actors("gems")
+        max_x = self._video_service.get_width()
+        max_y = self._video_service.get_height()
+        rocks = cast.get_actors("rocks")
+        gems = cast.get_actors("gems")
+
+       #create 6 levels
+        if self._score in range(10, 20):
+            self._level = self._score
+            self._level = self._level/self._score + 1
+            for item in  gems + rocks:
+                item.set_velocity(Point(0, 2))
+                item.move_next(max_x, max_y)
+        
+        elif self._score in range(20, 30):
+            self._level = self._score
+            self._level = self._level/self._score + 2
+            for item in  gems + rocks:
+                item.set_velocity(Point(0, 3))
+                item.move_next(max_x, max_y)
+
+        elif self._score in range(30, 40):
+            self._level = self._score
+            self._level = self._level/self._score + 3
+            for item in  gems + rocks:
+                item.set_velocity(Point(0, 4))
+                item.move_next(max_x, max_y)
+        
+        elif self._score in range(40, 50):
+            self._level = self._score
+            self._level = self._level/self._score + 4
+            for item in  gems + rocks:
+                item.set_velocity(Point(0, 4))
+                item.move_next(max_x, max_y)
+
+        elif self._score >= 50:
+            self._level = self._score
+            self._level = self._level/self._score + 5
+            for item in  gems + rocks:
+                item.set_velocity(Point(0, 6))
+                item.move_next(max_x, max_y)
+        
+        else:
+            self._level = self._score
+            self._level = self._level/self._score
+        
+        
         if len(gems) == 0:
             banner_GO = cast.get_first_actor("game_over")
             banner_GO.set_text("GAME OVER")
@@ -101,6 +148,8 @@ class Director:
             robot.move_next(1, -100)
             
         else: 
+            banner_l = cast.get_first_actor("level")
+            banner_l.set_text(f"LEVEL: {int(self._level)}")
             banner = cast.get_first_actor("banners")
             banner.set_text(f"Score: {self._score}")
 

@@ -24,6 +24,7 @@ Greed is a game in which the player seeks to gather as many falling gems as poss
    * If the player touches a gem they earn, randomly, points between 1 to 6.
    * If the player touches a rock they lose, ramdonly, points between 1 to 6.
    * Gems and rocks are removed when the player touches them.
+   * The game has 6 levels. The player can up or down leves through the game.
    * The game countinues until there aren't more gems, and a "Game Over" message is displayed on the window.
 
 

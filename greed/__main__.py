@@ -54,6 +54,19 @@ def main():
     banner_GO.set_color(color)
     banner_GO.set_position(position)
     cast.add_actor('game_over',banner_GO )
+
+    #create the level banner
+    x = int(MAX_X - 890)
+    y = int(MAX_Y - 590)
+    
+    position = Point(x, y)
+
+    banner_l = Actor()
+    banner_l.set_text("")
+    banner_l.set_font_size(FONT_SIZE)
+    banner_l.set_color(WHITE)
+    banner_l.set_position(position)
+    cast.add_actor('level',banner_l )
     
     # create the robot
     x = int(MAX_X/2)
