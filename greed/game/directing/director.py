@@ -136,10 +136,6 @@ class Director:
                 item.set_velocity(Point(0, 6))
                 item.move_next(max_x, max_y)
         
-        else:
-            self._level = self._score
-            self._level = self._level/self._score
-        
         
         if len(gems) == 0:
             banner_GO = cast.get_first_actor("game_over")
